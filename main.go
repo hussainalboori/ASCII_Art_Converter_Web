@@ -3,8 +3,11 @@ package main
 import (
 	"fmt"
 	"html/template"
+	"io"
 	"io/ioutil"
 	"net/http"
+	"os"
+	"strconv"
 	"strings"
 )
 
@@ -57,7 +60,34 @@ func ascii_art(argument string, fonts string) (string, int) {
 			}
 		}
 	}
+	err = os.WriteFile("download.doc", []byte(str), 0666)
+	if err != nil {
+		panic(err)
+	}
+	err1 := os.WriteFile("download.txt", []byte(str), 0666)
+	if err1 != nil {
+		panic(err1)
+	}
 	return str, 200
+}
+
+func download(w http.ResponseWriter, r *http.Request) {
+
+	formatType := r.FormValue("fileformat")
+
+	f, _ := os.Open("download." + formatType)
+	defer f.Close()
+
+	file, _ := f.Stat()
+	fsize := file.Size()
+
+	sfSize := strconv.Itoa(int(fsize))
+
+	w.Header().Set("Content-Disposition", "attachment; filename=asciiresults."+formatType)
+	w.Header().Set("Content-Type", "text/html")
+	w.Header().Set("Content-Length", sfSize)
+
+	io.Copy(w, f)
 }
 
 func init() {
@@ -148,13 +178,14 @@ func processor(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	w.WriteHeader(http.StatusBadRequest)
-	tpl.ExecuteTemplate(w, "500.html", nil) 
+	tpl.ExecuteTemplate(w, "500.html", nil)
 	return
 }
 
 func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/ascii-art", processor)
+	http.HandleFunc("/right", download)
 	http.Handle("/static/",
 		http.StripPrefix("/static/",
 			http.FileServer(http.Dir("static"))))
