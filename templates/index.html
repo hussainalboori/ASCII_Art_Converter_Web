@@ -61,20 +61,20 @@
         <input type="submit" value="Convert">
     </form>
     <form id="formatselection" action="/right" method="POST">
-    <h1>Select a format</h1>
-    <input type="radio" id="doc" name="fileformat" value="doc" size="25">
-    <label class="text" for="doc">doc</label><br>
-    <br>
-    <input type="radio" id="txt" name="fileformat" value="txt" size="25">
-    <label class="text" for="txt">txt</label><br>
-    <br>
+        <h1>Select a format</h1>
+        <label for="fileformat">Choose a file format:</label>
+        <select id="fileformat" name="fileformat">
+            <option value="doc">doc</option>
+            <option value="txt">txt</option>
+        </select><br>
+        <br>
     <button class="button">Download</button>
 </form>
     <h2>Output:</h2>
     {{if .First}}
-        <center><div class="result-box">
+        <div class="result-box">
             <pre>{{.First}}</pre>
-        </div></center>
+        </div>
     {{end}}
     
 </body>

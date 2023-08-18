@@ -61,6 +61,7 @@ h2 {
   width: 900px;
   overflow: scroll;
   background-color: #373636;
+  align-self: center;
   /* padding: 100%; */
   /* border-radius: 100%; */
 }
