@@ -58,7 +58,7 @@ go run main.go
 
 ## Maintainer
 
-- Hussain Alboori @hussainalboori
+- [@hussainalboori](https://github.com/hussainalboori)
 - Hussain Nabeel
 - Ali Alsanda
 
