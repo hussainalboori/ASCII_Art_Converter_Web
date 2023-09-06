@@ -58,7 +58,7 @@ go run main.go
 
 ## Maintainer
 
-- Hussain Alboori 
+- Hussain Alboori @hussainalboori
 - Hussain Nabeel
 - Ali Alsanda
 
