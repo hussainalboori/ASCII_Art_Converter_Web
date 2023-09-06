@@ -58,8 +58,8 @@ go run main.go
 
 ## Maintainer
 
-- [hussain alboori](https://github.com/hussainalboori)
-- Hussain Nabeel
+- [Hussain Alboori](https://github.com/hussainalboori)
+- [Hussain Nabeel](https://github.com/7ussainnabeel)
 - Ali Alsanda
 
 ## Version
