@@ -60,7 +60,7 @@ go run main.go
 
 - [Hussain Alboori](https://github.com/hussainalboori)
 - [Hussain Nabeel](https://github.com/7ussainnabeel)
-- Ali Alsanda
+- Ali Alsendi
 
 ## Version
 
